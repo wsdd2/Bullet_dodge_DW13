@@ -16,7 +16,11 @@ bullet_dodge_pz.py - PettingZoo ParallelEnv 封装（同步同时行动）
 
 奖励塑形（每个 agent 单独计算）：
 - sudden_death_started：参与者每人 +sudden_death_bonus
+<<<<<<< HEAD
 - duel_kill（突然死亡阶段你 DUEL 指定的目标当回合死亡且你没死） +duel_win_bonus
+=======
+- duel_kill（突然死亡阶段玩家 DUEL 指定的目标当回合死亡且自己没死） +duel_win_bonus
+>>>>>>> 49efced (merge remote and local)
 - terminal：冠军 +win_bonus；第二名（按 death_round 推断） +top2_bonus（第一名不额外给 top2）
 """
 
