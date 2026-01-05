@@ -22,7 +22,7 @@ python train_ppo_pz.py --num_players 6 --steps 500000 --device cuda
 
 ## 试玩
 ```bash
-python play_pz.py --num_players 6 --ckpt_dir runs_pz/20260105_123456 --episodes 3 --render
+python play_pz.py --num_players 6 --ckpt_dir runs_pz/20260105_110822 --episodes 3 --render
 ```
 
 ## 备注：为什么“每个玩家一个网络”
