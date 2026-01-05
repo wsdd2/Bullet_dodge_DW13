@@ -4,7 +4,7 @@ bullet_dodge_pz.py - PettingZoo ParallelEnv 封装（同步同时行动）
 特点：
 - 同步 simultaneous move：每回合所有玩家提交动作后，同时结算
 - fully observable：每个玩家看到所有玩家（hp/bullets/dodges/上一回合动作）+ 全局 mode/round
-- action mask：infos[agent]["action_mask"] 给出合法动作
+- action mask：infos[agent]["action_mask"] 给出合法动作（强烈建议 PPO 采样时使用）
 
 依赖：
   pip install pettingzoo gymnasium numpy
@@ -16,7 +16,7 @@ bullet_dodge_pz.py - PettingZoo ParallelEnv 封装（同步同时行动）
 
 奖励塑形（每个 agent 单独计算）：
 - sudden_death_started：参与者每人 +sudden_death_bonus
-- duel_kill（突然死亡阶段玩家 DUEL 指定的目标当回合死亡且自己没死） +duel_win_bonus
+- duel_kill（突然死亡阶段你 DUEL 指定的目标当回合死亡且你没死） +duel_win_bonus
 - terminal：冠军 +win_bonus；第二名（按 death_round 推断） +top2_bonus（第一名不额外给 top2）
 """
 
