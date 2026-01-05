@@ -34,7 +34,8 @@ import glob
 import random
 import argparse
 from typing import Dict, Optional, List, Tuple
-
+import time
+from datetime import datetime
 import numpy as np
 import torch
 import torch.nn as nn
@@ -175,15 +176,43 @@ def choose_ckpt(files: List[str], difficulty: str, rng: random.Random) -> Option
 
 
 @torch.no_grad()
-def bot_action(net: ActorCritic, obs: np.ndarray, mask: np.ndarray, device: torch.device, sample: bool) -> int:
+def bot_action(net, obs, mask, device, sample: bool, rng=None) -> int:
     o = torch.tensor(obs[None, :], dtype=torch.float32, device=device)
     m = torch.tensor(mask[None, :], dtype=torch.float32, device=device)
+
     logits, _ = net(o)
-    logits = masked_categorical_logits(logits, m)
-    if sample:
-        dist = torch.distributions.Categorical(logits=logits)
-        return int(dist.sample().item())
-    return int(torch.argmax(logits, dim=1).item())
+    logits = masked_categorical_logits(logits, m)  # [1, act_dim]
+
+    # 转到 numpy 采样（避免 torch 版本对 generator 的兼容问题）
+    logits_np = logits.squeeze(0).detach().cpu().numpy()
+    mask_np = mask.astype(np.float32)
+
+    valid = np.flatnonzero(mask_np > 0.5)
+    if valid.size == 0:
+        return 0
+
+    # 非采样：在合法动作里取 argmax
+    if (not sample) or (rng is None):
+        return int(valid[np.argmax(logits_np[valid])])
+
+    # 采样：对合法动作做 softmax 后按概率抽样
+    lv = logits_np[valid]
+    lv = lv - lv.max()  # 稳定 softmax
+    p = np.exp(lv)
+    s = float(p.sum())
+    if s <= 0.0 or not np.isfinite(s):
+        return int(valid[np.argmax(lv)])
+    p = p / s
+
+    # CDF sampling: works for both random.Random and numpy Generator
+    u = float(rng.random())  # random in [0,1)
+    cum = 0.0
+    for vid, prob in zip(valid, p):
+        cum += float(prob)
+        if u <= cum:
+            return int(vid)
+    return int(valid[-1])
+
 
 
 def print_round(env, infos, rewards, highlight_ids: List[int], player_tags: Dict[int, str]):
@@ -326,6 +355,9 @@ def main():
     act_dim = env.action_spaces[agents[0]].n
     device = torch.device(args.device)
 
+    bot_rng = {i: random.Random(args.seed * 10007 + i * 9973) for i in range(env.num_players)}
+
+
     # policy file selection from checkpoints
     ckpt_files = sorted(glob.glob(os.path.join(args.run_dir, "checkpoints", "upd_*_player_0.pt")))
     if not ckpt_files:
@@ -403,6 +435,10 @@ def main():
         if bot_ckpt_map:
             sample_show = dict(list(bot_ckpt_map.items())[: min(6, len(bot_ckpt_map))])
             print("Bot ckpt sample:", sample_show)
+            print("Game Initializing...")
+            import time
+            time.sleep(3)
+
 
     # episode loop
     for ep in range(args.episodes):
@@ -457,7 +493,7 @@ def main():
                             break
                         print("Action not allowed now (check ammo/dodge/target).")
                 else:
-                    actions[agent] = bot_action(nets[agent], obs[agent], am, device, sample=args.bot_sample)
+                    actions[agent] = bot_action(nets[agent], obs[agent], am, device, sample=args.bot_sample, rng=bot_rng[i])
 
             obs, rewards, terms, truncs, infos = env.step(actions)
 
