@@ -289,6 +289,7 @@ def main():
     # human players: player_0..player_{human_num-1}
     human_ids = list(range(args.human_num))
     bot_ids = [i for i in range(env.num_players) if i not in human_ids]
+    prompt_human_ids = human_ids[:]   # 本局仍需要键盘输入的真人玩家（每回合会更新）
 
 
     highlight_ids = human_ids[:]
@@ -342,7 +343,14 @@ def main():
         if args.render:
             print("\n=== Episode", ep, "===")
 
+        prompt_human_ids = human_ids[:]
+
         while not done:
+            # 更新：死亡真人不再要求输入
+            if prompt_human_ids:
+                prompt_human_ids = [hid for hid in prompt_human_ids if env.game.players[hid].alive]
+
+
             actions: Dict[str, int] = {}
             mode = env.game.mode
 
@@ -350,7 +358,7 @@ def main():
                 agent = f"player_{i}"
                 am = infos[agent]["action_mask"].astype(np.float32)
 
-                if i in human_ids:
+                if i in prompt_human_ids:
                     print("")
                     print(ansi_highlight(f"[Human] player_{i} | mode={mode.name} | hp={env.game.players[i].hp} b={env.game.players[i].bullets} d={env.game.players[i].dodges}"))
                     if mode == Mode.NORMAL:
