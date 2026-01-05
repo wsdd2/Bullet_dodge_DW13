@@ -433,8 +433,12 @@ def main():
         print("Human players:", human_ids)
         print("Bot difficulty:", difficulty)
         if bot_ckpt_map:
-            sample_show = dict(list(bot_ckpt_map.items())[: min(6, len(bot_ckpt_map))])
-            print("Bot ckpt sample:", sample_show)
+            sample_show = dict(list(bot_ckpt_map.items())[: min(8, len(bot_ckpt_map))])
+            if len(bot_ckpt_map) > 8:
+
+                print(f"Bot ckpt sample:{sample_show}, ...")
+            else:
+                print(f"Bot ckpt sample:{sample_show}")
             print("Game Initializing...")
             import time
             time.sleep(3)
@@ -503,7 +507,8 @@ def main():
             done = any(terms.values()) or any(truncs.values())
             import time
             time.sleep(args.interval_time)
-
+        import time
+        time.sleep(1)
     env.close()
 
 
