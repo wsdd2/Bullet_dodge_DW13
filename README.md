@@ -25,4 +25,4 @@ python play_pz.py --num_players 6 --ckpt_dir runs_pz/20260105_123456 --episodes 
 
 ## 备注：为什么“每个玩家一个网络”
 对抗博弈里如果所有玩家共享同一个网络并且共同优化，很容易变成“合作最大化总回报”，不符合期望中的各自为战的策略。
-独立 PPO 是一个可跑基线；想更强更稳，考虑做 league/policy-pool（对手混合历史快照）。
+独立 PPO 是一个可跑基线；下一步考虑做 league/policy-pool（对手混合历史快照）。
