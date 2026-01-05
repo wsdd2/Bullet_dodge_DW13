@@ -1,0 +1,115 @@
+=== Eval Episode 2 ===
+
+[Round 1] Mode=NORMAL
+[93m>>   P0: act=DODGE        alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=ATTACK->5    alive=1 hp=3 b=0 d=1  r=+0.000
+  P2: act=ATTACK->5    alive=1 hp=2 b=0 d=1  r=+0.000
+  P3: act=ATTACK->2    alive=1 hp=2 b=0 d=1  r=+0.000
+  P4: act=ATTACK->3    alive=1 hp=3 b=0 d=1  r=+0.000
+  P5: act=DODGE        alive=1 hp=3 b=1 d=0  r=+0.000
+
+[Round 2] Mode=NORMAL
+[93m>>   P0: act=ATTACK->2    alive=1 hp=3 b=0 d=0  r=+0.000[0m
+  P1: act=LOAD         alive=1 hp=2 b=1 d=1  r=+0.000
+  P2: act=DODGE        alive=1 hp=2 b=0 d=0  r=+0.000
+  P3: act=LOAD         alive=1 hp=2 b=1 d=1  r=+0.000
+  P4: act=DODGE        alive=1 hp=3 b=0 d=0  r=+0.000
+  P5: act=ATTACK->1    alive=1 hp=3 b=0 d=0  r=+0.000
+
+[Round 3] Mode=NORMAL
+[93m>>   P0: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=LOAD         alive=1 hp=2 b=2 d=1  r=+0.000
+  P2: act=LOAD         alive=1 hp=1 b=1 d=0  r=+0.000
+  P3: act=ATTACK->2    alive=1 hp=2 b=0 d=1  r=+0.000
+  P4: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000
+
+[Round 4] Mode=NORMAL
+[93m>>   P0: act=ATTACK->2    alive=1 hp=3 b=0 d=0  r=+0.000[0m
+  P1: act=TRADE        alive=1 hp=1 b=0 d=2  r=+0.000
+  P2: act=ATTACK->5    alive=0 hp=0 b=0 d=0 DIED r=+0.000
+  P3: act=LOAD         alive=1 hp=1 b=1 d=1  r=+0.000
+  P4: act=ATTACK->3    alive=1 hp=3 b=0 d=0  r=+0.000
+  P5: act=ATTACK->1    alive=1 hp=2 b=0 d=0  r=+0.000
+
+[Round 5] Mode=NORMAL
+[93m>>   P0: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=LOAD         alive=1 hp=1 b=1 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=LOAD         alive=1 hp=1 b=2 d=1  r=+0.000
+  P4: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=2 b=1 d=0  r=+0.000
+
+[Round 6] Mode=NORMAL
+[93m>>   P0: act=ATTACK->1    alive=1 hp=3 b=0 d=0  r=+0.000[0m
+  P1: act=LOAD         alive=0 hp=-1 b=2 d=2 DIED r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=TRADE        alive=0 hp=0 b=0 d=2 DIED r=+0.000
+  P4: act=ATTACK->3    alive=1 hp=3 b=0 d=0  r=+0.000
+  P5: act=ATTACK->1    alive=1 hp=2 b=0 d=0  r=+0.000
+
+[Round 7] Mode=NORMAL
+[93m>>   P0: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=2 b=1 d=0  r=+0.000
+
+[Round 8] Mode=NORMAL
+[93m>>   P0: act=ATTACK->4    alive=1 hp=3 b=0 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=LOAD         alive=1 hp=1 b=2 d=0  r=+0.000
+  P5: act=ATTACK->4    alive=1 hp=2 b=0 d=0  r=+0.000
+
+[Round 9] Mode=NORMAL
+[93m>>   P0: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=LOAD         alive=1 hp=1 b=3 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=2 b=1 d=0  r=+0.000
+
+[Round 10] Mode=NORMAL
+[93m>>   P0: act=ATTACK->4    alive=1 hp=3 b=0 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=LOAD         alive=0 hp=-1 b=4 d=0 DIED r=+0.000
+  P5: act=ATTACK->4    alive=1 hp=2 b=0 d=0  r=+0.000
+
+[Round 11] Mode=NORMAL
+[93m>>   P0: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=NOOP         alive=0 hp=-1 b=4 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=2 b=1 d=0  r=+0.000
+
+[Round 12] Mode=NORMAL
+[93m>>   P0: act=ATTACK->5    alive=1 hp=3 b=0 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=NOOP         alive=0 hp=-1 b=4 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=1 b=2 d=0  r=+0.000
+
+[Round 13] Mode=NORMAL
+[93m>>   P0: act=LOAD         alive=1 hp=3 b=1 d=0  r=+0.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=NOOP         alive=0 hp=-1 b=4 d=0  r=+0.000
+  P5: act=LOAD         alive=1 hp=1 b=3 d=0  r=+0.000
+
+[Round 14] Mode=NORMAL
+[93m>>   P0: act=ATTACK->5    alive=1 hp=3 b=0 d=0  r=+5.000[0m
+  P1: act=NOOP         alive=0 hp=-1 b=2 d=2  r=+0.000
+  P2: act=NOOP         alive=0 hp=0 b=0 d=0  r=+0.000
+  P3: act=NOOP         alive=0 hp=0 b=0 d=2  r=+0.000
+  P4: act=NOOP         alive=0 hp=-1 b=4 d=0  r=+0.000
+  P5: act=LOAD         alive=0 hp=0 b=4 d=0 DIED r=+1.000
+
+[93m==> WINNER: player_0[0m

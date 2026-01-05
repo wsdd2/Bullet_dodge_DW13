@@ -1,0 +1,24 @@
+{
+  "num_players": 6,
+  "steps": 800000,
+  "max_rounds": 200,
+  "seed": 0,
+  "obs_dim": 39,
+  "act_dim": 8,
+  "rollout_len": 512,
+  "fixed_opponents": false,
+  "opponent_run_dir": "",
+  "opponent_source": "final",
+  "ppo": {
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_eps": 0.2,
+    "ent_coef": 0.02,
+    "vf_coef": 0.5,
+    "lr": 0.0003,
+    "epochs": 4,
+    "minibatch": 256,
+    "rollout_len": 512,
+    "max_grad_norm": 0.5
+  }
+}
