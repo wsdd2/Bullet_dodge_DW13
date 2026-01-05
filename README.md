@@ -1,5 +1,5 @@
 # Bullet-Dodge (PettingZoo + PPO)
-
+基于Gymnasium + PettingZoo构建的基于PPO-Clip的强化学习小游戏代码，小游戏原型是DollWeekend 13上的“天选之娃”游戏，当时就觉得好像是个强化学习任务→_→
 ## 安装
 ```bash
 pip install pettingzoo gymnasium numpy torch
