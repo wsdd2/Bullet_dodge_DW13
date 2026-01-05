@@ -137,7 +137,7 @@ def bot_action(net: ActorCritic, obs: np.ndarray, mask: np.ndarray, device: torc
     return int(torch.argmax(logits, dim=1).item())
 
 
-def print_round(env, infos, rewards, highlight_ids: List[int]):
+def print_round(env, infos, rewards, highlight_ids: List[int], player_tags: Dict[int, str]):
     r = int(env.game.round_idx)
     mode_name = env.game.mode.name
     none_target = env.max_players
@@ -149,8 +149,9 @@ def print_round(env, infos, rewards, highlight_ids: List[int]):
         p = env.game.players[i]
         a_type, a_tgt = ra[i]
         act_s = action_to_str(a_type, a_tgt, none_target)
+        tag = player_tags.get(i, "normal")
         line = (
-            f"  P{i}: act={act_s:<14} "
+            f"  P{i}({tag}): act={act_s:<14} "
             f"alive={int(p.alive)} hp={p.hp} b={p.bullets} d={p.dodges} "
             f"{'DIED' if died[i] else ''} "
             f"r={rewards.get(f'player_{i}', 0.0):+.3f}"
@@ -291,6 +292,7 @@ def main():
     bot_ids = [i for i in range(env.num_players) if i not in human_ids]
     prompt_human_ids = human_ids[:]   # 本局仍需要键盘输入的真人玩家（每回合会更新）
 
+    player_tags = {i: "human" for i in human_ids}
 
     highlight_ids = human_ids[:]
 
@@ -300,10 +302,13 @@ def main():
             raise FileNotFoundError("best.pt not found under run_dir")
         nets["player_0"].load_state_dict(torch.load(best_path, map_location=device))
 
+        player_tags[0] = "best"
+
         if 0 in bot_ids:
             bot_ids.remove(0)
 
         highlight_ids = [0] + highlight_ids
+
 
     # load bot policies from checkpoint (shared policy is allowed)
     def load_path_into_all(path: str, ids: List[int]):
@@ -315,6 +320,8 @@ def main():
         p = choose_ckpt(ckpt_files, difficulty, rng)
         load_path_into_all(p, bot_ids)
         bot_ckpt_map = {i: os.path.basename(p) for i in bot_ids}
+        for i in bot_ids:
+            player_tags[i] = difficulty
     else:
         bot_ckpt_map = {}
         path_to_ids: Dict[str, List[int]] = {}
@@ -323,7 +330,11 @@ def main():
             d = rng.choices(["easy", "normal", "hard"], weights=[1, 1, 1], k=1)[0]
             p = choose_ckpt(ckpt_files, d, rng)
             path_to_ids.setdefault(p, []).append(i)
+            #bot_ckpt_map[i] = os.path.basename(p)
+            sd = torch.load(p, map_location=device)
+            nets[f"player_{i}"].load_state_dict(sd)
             bot_ckpt_map[i] = os.path.basename(p)
+            player_tags[i] = d
 
         for p, ids in path_to_ids.items():
             load_path_into_all(p, ids)
@@ -394,7 +405,7 @@ def main():
             obs, rewards, terms, truncs, infos = env.step(actions)
 
             if args.render:
-                print_round(env, infos, rewards, highlight_ids=human_ids)
+                print_round(env, infos, rewards, highlight_ids=highlight_ids, player_tags=player_tags)
 
             done = any(terms.values()) or any(truncs.values())
             import time
