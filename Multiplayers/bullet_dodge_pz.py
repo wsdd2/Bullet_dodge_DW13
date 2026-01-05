@@ -43,11 +43,11 @@ class BulletDodgePZEnv(ParallelEnv):
         max_rounds: int = 200,
         seed: int = 0,
         # reward shaping
-        win_bonus: float = 10.0,
-        top2_bonus: float = 3.0,
-        sudden_death_bonus: float = 0.5,
-        duel_win_bonus: float = 0.5,
-        step_penalty: float = -0.01,
+        win_bonus: float = 20.0,
+        top2_bonus: float = 5.0,
+        sudden_death_bonus: float = 1.5,
+        duel_win_bonus: float = 3.0,
+        step_penalty: float = -0.1,
         death_penalty: float = -1.0,
     ):
         if num_players < 4:
