@@ -6,7 +6,7 @@ pip install pettingzoo gymnasium numpy torch
 ```
 
 ## 文件
-- `game.py`：核心规则（与你前面那份一致）
+- `game.py`：核心规则
 - `bullet_dodge_pz.py`：PettingZoo ParallelEnv（同步同时行动 + action_mask + 奖励塑形）
 - `train_ppo_pz.py`：独立 PPO-Clip（每个 player 一个网络）
 - `play_pz.py`：加载 checkpoint 对战/试玩
