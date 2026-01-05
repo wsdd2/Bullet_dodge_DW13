@@ -101,6 +101,55 @@ def parse_upd_num(path: str) -> int:
         return 0
 
 
+def difficulty_pool(files: List[str], difficulty: str) -> List[str]:
+    """
+    返回该难度对应的 checkpoint 候选池（按 upd 编号排序）。
+    hard 默认排除最后 1 个（避免等价于 best/最新）。
+    """
+    if not files:
+        return []
+    files = sorted(files, key=parse_upd_num)
+    n = len(files)
+    if n <= 2:
+        return files
+
+    def clamp(a: int, b: int, x: int) -> int:
+        return max(a, min(b, x))
+
+    if difficulty == "easy":
+        hi = clamp(1, n, int(round(n * 0.35)))
+        return files[:hi]
+
+    if difficulty == "normal":
+        lo = clamp(0, n - 1, int(round(n * 0.25)))
+        hi = clamp(lo + 1, n, int(round(n * 0.80)))
+        pool = files[lo:hi]
+        return pool if pool else files
+
+    if difficulty == "hard":
+        lo = clamp(0, n - 2, int(round(n * 0.70)))
+        hi = n - 1  # exclude last
+        pool = files[lo:hi]
+        return pool if pool else files[:-1]
+
+    # fallback
+    return files
+
+
+def pick_from_pool(pool: List[str], rng: random.Random, used: set) -> str:
+    """
+    尽量不重复：先从 pool 中挑未使用的；若 pool 不够大则允许重复。
+    """
+    if not pool:
+        raise ValueError("Empty checkpoint pool")
+    avail = [p for p in pool if p not in used]
+    if avail:
+        p = rng.choice(avail)
+        used.add(p)
+        return p
+    return rng.choice(pool)
+
+
 def choose_ckpt(files: List[str], difficulty: str, rng: random.Random) -> Optional[str]:
     if not files:
         return None
@@ -316,28 +365,36 @@ def main():
         for i in ids:
             nets[f"player_{i}"].load_state_dict(sd)
 
+    bot_ckpt_map = {}
+    path_to_ids: Dict[str, List[int]] = {}
+    used_paths: set = set()
+
+    def pick_unique_ckpt(diff: str) -> str:
+        # 尽量选不同的 ckpt；池子不够大时允许重复
+        for _ in range(64):
+            p = choose_ckpt(ckpt_files, diff, rng)
+            if p not in used_paths:
+                used_paths.add(p)
+                return p
+        return choose_ckpt(ckpt_files, diff, rng)
+
     if difficulty != "mixed":
-        p = choose_ckpt(ckpt_files, difficulty, rng)
-        load_path_into_all(p, bot_ids)
-        bot_ckpt_map = {i: os.path.basename(p) for i in bot_ids}
         for i in bot_ids:
+            p = pick_unique_ckpt(difficulty)
+            path_to_ids.setdefault(p, []).append(i)
+            bot_ckpt_map[i] = os.path.basename(p)
             player_tags[i] = difficulty
     else:
-        bot_ckpt_map = {}
-        path_to_ids: Dict[str, List[int]] = {}
-
         for i in bot_ids:
             d = rng.choices(["easy", "normal", "hard"], weights=[1, 1, 1], k=1)[0]
-            p = choose_ckpt(ckpt_files, d, rng)
+            p = pick_unique_ckpt(d)
             path_to_ids.setdefault(p, []).append(i)
-            #bot_ckpt_map[i] = os.path.basename(p)
-            sd = torch.load(p, map_location=device)
-            nets[f"player_{i}"].load_state_dict(sd)
             bot_ckpt_map[i] = os.path.basename(p)
             player_tags[i] = d
 
-        for p, ids in path_to_ids.items():
-            load_path_into_all(p, ids)
+    # 按 checkpoint 分组加载：每个 ckpt 只 torch.load 一次
+    for p, ids in path_to_ids.items():
+        load_path_into_all(p, ids)
 
 
     if args.render:
