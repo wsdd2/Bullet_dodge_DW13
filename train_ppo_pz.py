@@ -21,7 +21,7 @@ train_ppo_pz.py - PettingZoo ParallelEnv + 独立 PPO-Clip（每个玩家一个�
       upd_00050_player_3.pt ...
     eval_logs/
       eval_0.txt, eval_1.txt ...
-
+"""
 
 
 from __future__ import annotations
@@ -46,7 +46,7 @@ from game import ActionType
 # ---------------- utilities ----------------
 
 def masked_categorical_logits(logits: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
-    """logits: [B, A], mask: [B, A] (0/1)"""
+    #logits: [B, A], mask: [B, A] (0/1)
     neg = torch.finfo(logits.dtype).min
     return torch.where(mask > 0.5, logits, torch.tensor(neg, device=logits.device, dtype=logits.dtype))
 
