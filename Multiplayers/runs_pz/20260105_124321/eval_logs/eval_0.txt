@@ -1,0 +1,135 @@
+=== Eval Episode 0 ===
+
+[Round 1] Mode=NORMAL
+[93m>>   P0: act=ATTACK->3      alive=1 hp=2 b=0 d=2  r=-0.010[0m
+  P1: act=DODGE          alive=1 hp=2 b=1 d=1  r=-0.010
+  P2: act=ATTACK->3      alive=0 hp=0 b=0 d=2 DIED r=-1.010
+  P3: act=DODGE          alive=1 hp=2 b=1 d=1  r=-0.010
+  P4: act=ATTACK->2      alive=1 hp=2 b=0 d=2  r=-0.010
+  P5: act=DODGE          alive=1 hp=2 b=1 d=1  r=-0.010
+  P6: act=ATTACK->3      alive=1 hp=2 b=0 d=2  r=-0.010
+  P7: act=ATTACK->3      alive=1 hp=2 b=0 d=2  r=-0.010
+  P8: act=DODGE          alive=1 hp=2 b=1 d=1  r=-0.010
+  P9: act=ATTACK->2      alive=1 hp=2 b=0 d=2  r=-0.010
+
+[Round 2] Mode=NORMAL
+[93m>>   P0: act=DODGE          alive=1 hp=2 b=0 d=1  r=-0.010[0m
+  P1: act=DODGE          alive=1 hp=2 b=1 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=ATTACK->5      alive=1 hp=2 b=0 d=1  r=-0.010
+  P4: act=DODGE          alive=1 hp=2 b=0 d=1  r=-0.010
+  P5: act=DODGE          alive=1 hp=2 b=1 d=0  r=-0.010
+  P6: act=DODGE          alive=1 hp=2 b=0 d=1  r=-0.010
+  P7: act=DODGE          alive=1 hp=2 b=0 d=1  r=-0.010
+  P8: act=DODGE          alive=1 hp=2 b=1 d=0  r=-0.010
+  P9: act=DODGE          alive=1 hp=2 b=0 d=1  r=-0.010
+
+[Round 3] Mode=NORMAL
+[93m>>   P0: act=DODGE          alive=1 hp=2 b=0 d=0  r=-0.010[0m
+  P1: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=DODGE          alive=1 hp=2 b=0 d=0  r=-0.010
+  P4: act=DODGE          alive=1 hp=2 b=0 d=0  r=-0.010
+  P5: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010
+  P6: act=DODGE          alive=1 hp=2 b=0 d=0  r=-0.010
+  P7: act=DODGE          alive=1 hp=2 b=0 d=0  r=-0.010
+  P8: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010
+  P9: act=DODGE          alive=1 hp=2 b=0 d=0  r=-0.010
+
+[Round 4] Mode=NORMAL
+[93m>>   P0: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010[0m
+  P1: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P4: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P5: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P6: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P7: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P8: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P9: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+
+[Round 5] Mode=NORMAL
+[93m>>   P0: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010[0m
+  P1: act=ATTACK->3      alive=0 hp=0 b=0 d=0 DIED r=-1.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=ATTACK->5      alive=0 hp=-4 b=0 d=0 DIED r=-1.010
+  P4: act=ATTACK->1      alive=1 hp=2 b=0 d=0  r=-0.010
+  P5: act=ATTACK->3      alive=1 hp=1 b=0 d=0  r=-0.010
+  P6: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010
+  P7: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010
+  P8: act=ATTACK->3      alive=1 hp=2 b=0 d=0  r=-0.010
+  P9: act=ATTACK->1      alive=1 hp=2 b=0 d=0  r=-0.010
+
+[Round 6] Mode=NORMAL
+[93m>>   P0: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010[0m
+  P1: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=NOOP           alive=0 hp=-4 b=0 d=0  r=-0.010
+  P4: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P5: act=RELOAD         alive=1 hp=1 b=1 d=0  r=-0.010
+  P6: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P7: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P8: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P9: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+
+[Round 7] Mode=NORMAL
+[93m>>   P0: act=ATTACK->4      alive=1 hp=2 b=0 d=0  r=-0.010[0m
+  P1: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=NOOP           alive=0 hp=-4 b=0 d=0  r=-0.010
+  P4: act=ATTACK->7      alive=0 hp=-2 b=0 d=0 DIED r=-1.010
+  P5: act=ATTACK->4      alive=0 hp=-1 b=0 d=0 DIED r=-1.010
+  P6: act=ATTACK->5      alive=1 hp=2 b=0 d=0  r=-0.010
+  P7: act=ATTACK->5      alive=1 hp=1 b=0 d=0  r=-0.010
+  P8: act=ATTACK->4      alive=1 hp=2 b=0 d=0  r=-0.010
+  P9: act=ATTACK->4      alive=1 hp=2 b=0 d=0  r=-0.010
+
+[Round 8] Mode=NORMAL
+[93m>>   P0: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010[0m
+  P1: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=NOOP           alive=0 hp=-4 b=0 d=0  r=-0.010
+  P4: act=NOOP           alive=0 hp=-2 b=0 d=0  r=-0.010
+  P5: act=NOOP           alive=0 hp=-1 b=0 d=0  r=-0.010
+  P6: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P7: act=RELOAD         alive=1 hp=1 b=1 d=0  r=-0.010
+  P8: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P9: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+
+[Round 9] Mode=NORMAL
+[93m>>   P0: act=ATTACK->8      alive=1 hp=1 b=0 d=0  r=-0.010[0m
+  P1: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=NOOP           alive=0 hp=-4 b=0 d=0  r=-0.010
+  P4: act=NOOP           alive=0 hp=-2 b=0 d=0  r=-0.010
+  P5: act=NOOP           alive=0 hp=-1 b=0 d=0  r=-0.010
+  P6: act=ATTACK->8      alive=1 hp=2 b=0 d=0  r=-0.010
+  P7: act=ATTACK->8      alive=0 hp=0 b=0 d=0 DIED r=-1.010
+  P8: act=ATTACK->0      alive=0 hp=-1 b=0 d=0 DIED r=-1.010
+  P9: act=ATTACK->7      alive=1 hp=2 b=0 d=0  r=-0.010
+
+[Round 10] Mode=NORMAL
+[93m>>   P0: act=RELOAD         alive=1 hp=1 b=1 d=0  r=-0.010[0m
+  P1: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=NOOP           alive=0 hp=-4 b=0 d=0  r=-0.010
+  P4: act=NOOP           alive=0 hp=-2 b=0 d=0  r=-0.010
+  P5: act=NOOP           alive=0 hp=-1 b=0 d=0  r=-0.010
+  P6: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+  P7: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P8: act=NOOP           alive=0 hp=-1 b=0 d=0  r=-0.010
+  P9: act=RELOAD         alive=1 hp=2 b=1 d=0  r=-0.010
+
+[Round 11] Mode=NORMAL
+[93m>>   P0: act=ATTACK->6      alive=0 hp=0 b=0 d=0 DIED r=+1.990[0m
+  P1: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P2: act=NOOP           alive=0 hp=0 b=0 d=2  r=-0.010
+  P3: act=NOOP           alive=0 hp=-4 b=0 d=0  r=-0.010
+  P4: act=NOOP           alive=0 hp=-2 b=0 d=0  r=-0.010
+  P5: act=NOOP           alive=0 hp=-1 b=0 d=0  r=-0.010
+  P6: act=ATTACK->0      alive=0 hp=0 b=0 d=0 DIED r=+1.990
+  P7: act=NOOP           alive=0 hp=0 b=0 d=0  r=-0.010
+  P8: act=NOOP           alive=0 hp=-1 b=0 d=0  r=-0.010
+  P9: act=ATTACK->6      alive=1 hp=2 b=0 d=0  r=+9.990
+
+[93m==> WINNER: player_9[0m
