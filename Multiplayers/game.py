@@ -28,7 +28,7 @@ from enum import IntEnum
 from typing import List, Optional
 import numpy as np
 
-
+import time
 class Mode(IntEnum):
     NORMAL = 0
     SUDDEN_DEATH = 1
@@ -341,6 +341,7 @@ class BulletDodgeGame:
                         if di != dj:
                             break
                         else:
+                            import time
                             time.sleep(0.5)
                             print(f"点数相同，都是{di}，继续投掷骰子")
                     loser = i if di < dj else j
