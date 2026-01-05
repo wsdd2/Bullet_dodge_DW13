@@ -340,7 +340,18 @@ class BulletDodgeGame:
                         dj = int(self.rng.integers(1, 7))
                         if di != dj:
                             break
+                        else:
+                            time.sleep(0.5)
+                            print(f"点数相同，都是{di}，继续投掷骰子")
                     loser = i if di < dj else j
+                    print(f"玩家P{i} 点数为{di}, 玩家P{j} 点数为{dj}")
+                    import time
+                    if loser == i:
+                        print(f"玩家P{j} 决斗获胜")
+                        time.sleep(2)
+                    else:
+                        print(f"玩家P{i} 决斗获胜")
+                        time.sleep(2)
                     self.players[loser].hp -= 1
                     damage_taken[loser] += 1
                     if self.players[loser].hp <= 0:
