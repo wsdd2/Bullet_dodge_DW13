@@ -138,7 +138,7 @@ python play_pz.py --run_dir runs_pz/xxx --num_players 12 --no-duel --human-playe
 ```
 10人局，开启决斗；电脑玩家对战，混合难度；设置初始HP4，初始子弹2，初始闪避次数3；玩三局
 ```bash
-python play_pz.py --run_dir "F:\round_godness\PettingZoo V2\Multiplayers\runs_pz\20260105_124321" --init_hp 4 --init_bullets 2 --init_dodge 3 --num_players 10 --interval_time 1 --human-player-num 0 --mixed --render --auto-play --episodes 3
+python play_pz.py --run_dir "F:\round_godness\PettingZoo V2\Multiplayers\runs_pz\20260105_124321" --bot_sample --render --init_hp 4 --init_bullets 2 --init_dodge 3 --num_players 10 --interval_time 1 --human-player-num 0 --mixed --auto-play --episodes 3
 ```
 ---
 
