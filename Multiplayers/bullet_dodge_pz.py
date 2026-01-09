@@ -49,6 +49,7 @@ class BulletDodgePZEnv(ParallelEnv):
         duel_win_bonus: float = 3.0,
         step_penalty: float = -0.1,
         death_penalty: float = -1.0,
+        render_info: bool = True,
     ):
         if num_players < 4:
             raise ValueError("num_players 必须 >= 4")
@@ -68,7 +69,8 @@ class BulletDodgePZEnv(ParallelEnv):
         self.duel_win_bonus = float(duel_win_bonus)
         self.step_penalty = float(step_penalty)
         self.death_penalty = float(death_penalty)
-
+        self.render_info = render_info
+        # print(self.render_info)
         self.game = BulletDodgeGame(
             num_players=self.num_players,
             max_players=self.max_players,
@@ -77,6 +79,7 @@ class BulletDodgePZEnv(ParallelEnv):
             init_bullets=int(init_bullets),
             init_dodges=int(init_dodges),
             seed=self._seed,
+            render_info=self.render_info, 
         )
 
         self.possible_agents = [f"player_{i}" for i in range(self.num_players)]
@@ -305,8 +308,10 @@ def parallel_env(
     init_dodges: int = 2,
     max_rounds: int = 200,
     seed: int = 0,
+    render_info: bool = True,
     **kwargs,
 ) -> BulletDodgePZEnv:
+    # print(f"render_info: {render_info}")
     return BulletDodgePZEnv(
         num_players=num_players,
         max_players=max_players,
@@ -316,5 +321,6 @@ def parallel_env(
         init_dodges=init_dodges,
         max_rounds=max_rounds,
         seed=seed,
+        render_info=render_info,
         **kwargs,
     )
