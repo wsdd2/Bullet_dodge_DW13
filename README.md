@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="mint_cowboy.jpg">
-    <img src="mint_cowboy.jpg" width="600" alt="Demo">
+    <img src="mint_cowboy.jpg" width="200" alt="Demo">
   </a>
 </p>
 
