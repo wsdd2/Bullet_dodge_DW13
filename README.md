@@ -1,5 +1,12 @@
 # Bullet-Dodge (PettingZoo + PPO)
 
+<p align="center">
+  <a href="mint_cowboy.jpg">
+    <img src="mint_cowboy.jpg" width="600" alt="Demo">
+  </a>
+</p>
+
+
 基于Gymnasium + PettingZoo构建的基于PPO-Clip的强化学习小游戏代码，小游戏原型是DollWeekend 13上的“天选之娃”游戏，当时就觉得好像是个强化学习任务→_→
 ## 关于最新版本
 最新版本可以去Multiplayer文件夹运行，查看该文件夹下的README，可以进行多人对战（PVP/PVE/PVPVE），非常建议开启
