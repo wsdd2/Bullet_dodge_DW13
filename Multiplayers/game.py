@@ -89,6 +89,7 @@ class BulletDodgeGame:
         max_bullets: int = 10,
         max_dodges: int = 10,
         seed: Optional[int] = None,
+        render_info: bool = True, 
     ):
         if num_players < 4:
             raise ValueError("num_players 必须 >= 4")
@@ -110,6 +111,7 @@ class BulletDodgeGame:
 
         self.players: List[PlayerState] = []
         self.last_actions: List[RoundAction] = []
+        self.render_info = render_info
         self.reset(seed=seed)
 
     # ---------- action encoding ----------
@@ -216,7 +218,7 @@ class BulletDodgeGame:
             return True
         return False
 
-    def step(self, action_ids: List[int]) -> StepResult:
+    def step(self, action_ids: List[int], render_info: bool = True) -> StepResult:
         if len(action_ids) != self.num_players:
             raise ValueError("action_ids 长度必须等于 num_players")
 
@@ -343,16 +345,19 @@ class BulletDodgeGame:
                         else:
                             import time
                             time.sleep(0.5)
-                            print(f"点数相同，都是{di}，继续投掷骰子")
+                            if self.render_info:
+                                print(f"点数相同，都是{di}，继续投掷骰子")
                     loser = i if di < dj else j
-                    print(f"玩家P{i} 点数为{di}, 玩家P{j} 点数为{dj}")
+                    if self.render_info:
+                        print(f"玩家P{i} 点数为{di}, 玩家P{j} 点数为{dj}")
                     import time
-                    if loser == i:
-                        print(f"玩家P{j} 决斗获胜")
-                        time.sleep(2)
-                    else:
-                        print(f"玩家P{i} 决斗获胜")
-                        time.sleep(2)
+                    if self.render_info:
+                        if loser == i:
+                            print(f"玩家P{j} 决斗获胜")
+                            time.sleep(2)
+                        else:
+                            print(f"玩家P{i} 决斗获胜")
+                            time.sleep(2)
                     self.players[loser].hp -= 1
                     damage_taken[loser] += 1
                     if self.players[loser].hp <= 0:
