@@ -307,7 +307,7 @@ def main():
 
     ap.add_argument("--human-player-num", dest="human_num", type=int, default=0, help="真人玩家数量（从 player_0 开始）")
     ap.add_argument("--interval_time", type=float, default=0.5, help='每轮间隔时间')
-
+    ap.add_argument("--render_info", action='store_false', help="是否输出决斗结果")
     # difficulty flags
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--easy", action="store_true")
@@ -347,6 +347,7 @@ def main():
         init_dodges=args.init_dodges,
         max_rounds=args.max_rounds,
         seed=args.seed,
+        render_info=args.render_info,
     )
     obs, infos = env.reset(seed=args.seed)
 
@@ -497,7 +498,7 @@ def main():
                             break
                         print("Action not allowed now (check ammo/dodge/target).")
                 else:
-                    actions[agent] = bot_action(nets[agent], obs[agent], am, device, sample=args.bot_sample, rng=bot_rng[i])
+                    actions[agent] = bot_action(nets[agent], obs[agent], am, device, sample=True, rng=bot_rng[i])
 
             obs, rewards, terms, truncs, infos = env.step(actions)
 
