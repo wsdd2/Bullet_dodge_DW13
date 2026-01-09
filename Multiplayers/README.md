@@ -108,6 +108,10 @@ python train_ppo_pz.py --device cuda --init_hp 2 --init_bullets 1 --init_dodges 
 python train_ppo_pz.py --device cuda --opponent_policy_path runs_pz/xxx/checkpoints/upd_00100_player_0.pt
 ```
 
+推荐训练参数
+```bash
+python .\train_ppo_pz.py --num_players 16 --seed 142857 --device cuda --duel --init_hp 5 --init_bullets 1 --init_dodges 4 --train_all --steps 2000000 --print_every_updates 1
+```
 输出目录：`runs_pz/YYYYMMDD_HHMMSS/`
 
 - `checkpoints/`：训练快照（例如 `upd_00100_player_0.pt`）
