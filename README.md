@@ -9,6 +9,8 @@
 ## 安装
 ```bash
 pip install pettingzoo gymnasium numpy torch
+# 或者（推荐，因为要安装CUDA版本的torch）
+pip install -r requirements.txt
 ```
 
 ## 文件
