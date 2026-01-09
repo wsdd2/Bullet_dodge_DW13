@@ -304,7 +304,7 @@ def main():
     # fixed opponents: all opponents load one .pt and freeze
     ap.add_argument("--opponent_policy_path", type=str, default="", help="固定对手策略文件（只训练 player_0）")
     ap.add_argument("--train_all", action="store_true", help="全员同时学习")
-
+    ap.add_argument("--render_info", action="store_true", help="是否输出决斗结果")
     args = ap.parse_args()
 
     cfg = PPOCfg(rollout_len=args.rollout_len)
@@ -318,6 +318,7 @@ def main():
         init_dodges=args.init_dodges,
         max_rounds=args.max_rounds,
         seed=args.seed,
+        render_info=args.render_info,
     )
     obs, infos = env.reset(seed=args.seed)
 
@@ -364,6 +365,7 @@ def main():
                 "init_hp": args.init_hp,
                 "init_bullets": args.init_bullets,
                 "init_dodges": args.init_dodges,
+                "render_info": args.render_info,
             },
             "train": {
                 "steps": args.steps,
